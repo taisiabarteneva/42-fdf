@@ -6,7 +6,7 @@
 /*   By: wurrigon <wurrigon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 23:47:53 by wurrigon          #+#    #+#             */
-/*   Updated: 2022/01/20 19:21:45 by wurrigon         ###   ########.fr       */
+/*   Updated: 2022/01/20 21:16:34 by wurrigon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	calc_height(t_fdf **fdf)
 {
 	int		height;
 	char	*line;
-	char 	*tmp;
+	char	*tmp;
 	int		fd;
 
 	height = 0;
@@ -90,10 +90,7 @@ void	fill(t_elem *row, char *line)
 	while (nums[i])
 	{	
 		row[i].z = ft_atoi(nums[i]);
-		if (row[i].z == 0)
-			row[i].color = 0xccccff;
-		else
-			row[i].color = 0x4f8ec1;
+		row[i].color = COLOR;
 		free(nums[i]);
 		i++;
 	}
@@ -104,7 +101,7 @@ void	fill(t_elem *row, char *line)
 void	parse(t_fdf **fdf)
 {
 	char	*line;
-	char 	*tmp;
+	char	*tmp;
 	int		i;
 	int		fd;
 

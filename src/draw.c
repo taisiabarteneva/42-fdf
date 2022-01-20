@@ -6,7 +6,7 @@
 /*   By: wurrigon <wurrigon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 23:47:17 by wurrigon          #+#    #+#             */
-/*   Updated: 2022/01/20 19:04:06 by wurrigon         ###   ########.fr       */
+/*   Updated: 2022/01/20 20:44:16 by wurrigon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ static void	reset_background(t_fdf **fdf)
 	i = 0;
 	while (i < HEIGHT * WIDTH)
 	{
-		img[i] = 0x000000;
+		img[i] = 0x222222;
 		i++;
 	}
 }

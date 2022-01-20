@@ -6,14 +6,14 @@
 /*   By: wurrigon <wurrigon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 23:47:03 by wurrigon          #+#    #+#             */
-/*   Updated: 2022/01/20 00:52:14 by wurrigon         ###   ########.fr       */
+/*   Updated: 2022/01/20 21:03:09 by wurrigon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FDF_H
 # define FDF_H
 
-// # include 	<mlx.h>
+/* # include 	<mlx.h>  */
 # include "mlx/mlx.h"
 # include <stdio.h>
 # include <fcntl.h>
@@ -25,8 +25,9 @@
 /* window */
 # define HEIGHT 	800
 # define WIDTH 		1000
+# define MAX_HEIGHT 99
 
-# define COLOR		0xa0c8d6
+# define COLOR		0xf5f5f5
 
 /* params to be changed */
 # define X_SHIFT	400
@@ -34,7 +35,7 @@
 # define ZOOM		20
 # define ISOMETRIC	1
 # define PARALLEL 	2
-# define INCREASE	10
+# define INCREASE	15
 # define ANGLE		0.8
 
 /* convert */

@@ -6,13 +6,13 @@
 /*   By: wurrigon <wurrigon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 23:18:10 by wurrigon          #+#    #+#             */
-/*   Updated: 2022/01/20 19:06:19 by wurrigon         ###   ########.fr       */
+/*   Updated: 2022/01/20 21:15:56 by wurrigon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void free_all(t_fdf *fdf)
+void	free_all(t_fdf *fdf)
 {
 	free_map(fdf, 0);
 	free(fdf->im->ptr);

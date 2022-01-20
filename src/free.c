@@ -6,7 +6,7 @@
 /*   By: wurrigon <wurrigon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 23:47:24 by wurrigon          #+#    #+#             */
-/*   Updated: 2022/01/20 18:56:55 by wurrigon         ###   ########.fr       */
+/*   Updated: 2022/01/20 21:02:08 by wurrigon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,10 @@ void	free_map(t_fdf *fdf, int flag)
 	i = 0;
 	while (fdf->matrix[i])
 	{
-		dprintf(2, "MATRIX I %p\n", fdf->matrix[i]);
 		free(fdf->matrix[i]);
 		fdf->matrix[i] = NULL;
 		i++;
 	}
-	dprintf(2, "MATRIX %p\n", fdf->matrix);
 	free(fdf->matrix);
 	fdf->matrix = NULL;
 	if (flag > 0)

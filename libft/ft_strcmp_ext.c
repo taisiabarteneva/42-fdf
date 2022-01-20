@@ -15,13 +15,15 @@
 int	ft_strcmp_ext(char *filename, char *ext)
 {
 	size_t	len;
-	int		i;
+	int		res;
 	char	*tmp;
 
 	len = ft_strlen(ext);
-	i = 0;
 	tmp = ft_substr((const char *)filename, ft_strlen(filename) - len, len);
-	if (ft_strncmp((const char *)tmp, (const char *)ext, len) != 0)
+	res = ft_strncmp((const char *)tmp, (const char *)ext, len);
+	free(tmp);
+	tmp = NULL;
+	if (res != 0)
 		return (1);
 	return (0);
 }
