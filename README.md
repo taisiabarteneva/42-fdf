@@ -5,4 +5,5 @@ The goal of the project is to create a simple 3D map. The coordinates of a map a
 Usage :
 $./fdf <file.txt>
 
-<img width="1112" alt="mars_color" src="https://user-images.githubusercontent.com/95509213/150386727-2f99f23c-72c6-4671-bc87-abbe72f78936.png">
+
+![photo_2022-01-20_20-10-58](https://user-images.githubusercontent.com/95509213/150387871-29360424-136a-439c-a883-fa3d8e33b508.jpg)
