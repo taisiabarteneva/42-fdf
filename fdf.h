@@ -6,14 +6,14 @@
 /*   By: wurrigon <wurrigon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 23:47:03 by wurrigon          #+#    #+#             */
-/*   Updated: 2022/01/20 21:03:09 by wurrigon         ###   ########.fr       */
+/*   Updated: 2022/01/21 15:24:23 by wurrigon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FDF_H
 # define FDF_H
 
-/* # include 	<mlx.h>  */
+/* # include 	<mlx.h> */
 # include "mlx/mlx.h"
 # include <stdio.h>
 # include <fcntl.h>
@@ -28,8 +28,9 @@
 # define MAX_HEIGHT 99
 
 # define COLOR		0xf5f5f5
+# define BG_COLOR	0x222222
 
-/* params to be changed */
+/* params */
 # define X_SHIFT	400
 # define Y_SHIFT	300
 # define ZOOM		20
@@ -37,10 +38,6 @@
 # define PARALLEL 	2
 # define INCREASE	15
 # define ANGLE		0.8
-
-/* convert */
-# define HEX 		16
-# define PREFIX 	2
 
 /* key codes */
 # define ESC		53
@@ -112,10 +109,10 @@ void	init_coord(t_coord **c);
 /* color */
 int		get_color(int z_val);
 void	get_color_from_map(t_elem *el, char *line);
-int		gradient(t_coord *c, int dx, int dy, t_fdf *fdf);
 
 /* free */
 void	free_map(t_fdf *fdf, int flag);
+void	free_all(t_fdf *fdf);
 
 /* utils */
 void	fill_coord(t_coord **c, int x, int y, t_fdf **fdf);

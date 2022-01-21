@@ -6,7 +6,7 @@
 /*   By: wurrigon <wurrigon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 23:47:53 by wurrigon          #+#    #+#             */
-/*   Updated: 2022/01/20 21:16:34 by wurrigon         ###   ########.fr       */
+/*   Updated: 2022/01/21 15:24:45 by wurrigon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,19 +63,16 @@ void	create(t_fdf **fdf)
 	calc_width(fdf);
 	(*fdf)->matrix = (t_elem **)malloc(sizeof(t_elem *) * (*fdf)->height);
 	if (!(*fdf)->matrix)
-		free_map(*fdf, 1);
+	{
+		ft_putendl_fd("Error: malloc\n", STDOUT_FILENO);
+		exit(EXIT_FAILURE);
+	}
 	while (i < (*fdf)->height)
 	{
 		j = 0;
 		(*fdf)->matrix[i] = (t_elem *)malloc(sizeof(t_elem) * ((*fdf)->width));
 		if (!((*fdf)->matrix[i]))
 			free_map(*fdf, 1);
-		while (j < (*fdf)->width)
-		{
-			(*fdf)->matrix[i][j].z = 0;
-			(*fdf)->matrix[i][j].color = 0xFFFFFF;
-			j++;
-		}
 		i++;
 	}
 }
