@@ -6,7 +6,7 @@
 /*   By: wurrigon <wurrigon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 23:18:10 by wurrigon          #+#    #+#             */
-/*   Updated: 2022/01/22 20:22:42 by wurrigon         ###   ########.fr       */
+/*   Updated: 2022/01/21 15:24:04 by wurrigon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	main(int ac, char **av)
 	parse(&fdf);
 	init_coord(&coord);
 	draw(&fdf);
-	mlx_hook(fdf->win, 2, 1L<<0, key_hooks, fdf);	
+	mlx_hook(fdf->win, 2, 0, key_hooks, fdf);
 	mlx_loop(fdf->mlx);
 	free_all(fdf);
 	return (0);

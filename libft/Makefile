@@ -26,7 +26,7 @@ FLAGS = -Wall -Wextra -Werror
 
 all : $(NAME)
 
-$(NAME) : $(OBJ)
+$(NAME) : $(OBJ) $(INCLUDES)
 	ar rcs $(NAME) $?
 
 %.o : %.c $(INCLUDES)

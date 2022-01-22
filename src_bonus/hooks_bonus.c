@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   hooks.c                                            :+:      :+:    :+:   */
+/*   hooks_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wurrigon <wurrigon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 23:47:30 by wurrigon          #+#    #+#             */
-/*   Updated: 2022/01/22 19:50:16 by wurrigon         ###   ########.fr       */
+/*   Updated: 2022/01/22 18:42:26 by wurrigon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,20 +40,14 @@ void	change_shift(int code, t_fdf *fdf)
 
 void	change_zoom(int code, t_fdf *fdf)
 {
-	if (fdf->data->zoom < 3 && fdf->height > MAX_HEIGHT)
-	{
-		fdf->data->zoom = 3;
-		return ;		
-	}
-	else if (fdf->data->zoom < 1)
-	{
-		fdf->data->zoom = 1;
-		return ;		
-	}
 	if (code == ZOOM_IN)
 		fdf->data->zoom -= 1;
 	else if (code == ZOOM_OUT)
 		fdf->data->zoom += 1;
+	if (fdf->data->zoom < 1)
+		fdf->data->zoom = 1;
+	if (fdf->data->zoom < 3 && fdf->height > MAX_HEIGHT)
+		fdf->data->zoom = 3;
 }
 
 void	change_projection(t_fdf *fdf)
@@ -68,8 +62,8 @@ int	key_hooks(int code, t_fdf *fdf)
 {
 	if (code == ESC)
 	{
-		// mlx_destroy_image(fdf->mlx, fdf->im->ptr);
-		// mlx_destroy_window(fdf->mlx, fdf->win);
+		mlx_destroy_image(fdf->mlx, fdf->im->ptr);
+		mlx_destroy_window(fdf->mlx, fdf->win);
 		exit(EXIT_SUCCESS);
 	}
 	else if (code >= KEY_LEFT && code <= KEY_UP)
