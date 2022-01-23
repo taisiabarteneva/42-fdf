@@ -6,7 +6,7 @@
 /*   By: wurrigon <wurrigon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 23:47:30 by wurrigon          #+#    #+#             */
-/*   Updated: 2022/01/22 19:50:16 by wurrigon         ###   ########.fr       */
+/*   Updated: 2022/01/23 17:05:29 by wurrigon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,24 +36,16 @@ void	change_shift(int code, t_fdf *fdf)
 		else
 			fdf->data->x_shift -= 10;
 	}
+	draw(&fdf);
 }
 
 void	change_zoom(int code, t_fdf *fdf)
 {
-	if (fdf->data->zoom < 3 && fdf->height > MAX_HEIGHT)
-	{
-		fdf->data->zoom = 3;
-		return ;		
-	}
-	else if (fdf->data->zoom < 1)
-	{
-		fdf->data->zoom = 1;
-		return ;		
-	}
-	if (code == ZOOM_IN)
+	if (code == ZOOM_IN && fdf->data->zoom > 2)
 		fdf->data->zoom -= 1;
-	else if (code == ZOOM_OUT)
+	else if (code == ZOOM_OUT && fdf->data->zoom < 50)
 		fdf->data->zoom += 1;
+	draw(&fdf);
 }
 
 void	change_projection(t_fdf *fdf)
@@ -62,30 +54,24 @@ void	change_projection(t_fdf *fdf)
 		fdf->data->proj = PARALLEL;
 	else
 		fdf->data->proj = ISOMETRIC;
+	draw(&fdf);
 }
 
 int	key_hooks(int code, t_fdf *fdf)
 {
 	if (code == ESC)
-	{
-		// mlx_destroy_image(fdf->mlx, fdf->im->ptr);
-		// mlx_destroy_window(fdf->mlx, fdf->win);
 		exit(EXIT_SUCCESS);
-	}
 	else if (code >= KEY_LEFT && code <= KEY_UP)
 	{
 		change_shift(code, fdf);
-		draw(&fdf);
 	}
 	else if (code == ZOOM_IN || code == ZOOM_OUT)
 	{
 		change_zoom(code, fdf);
-		draw(&fdf);		
 	}
 	else if (code == PROJ)
 	{
 		change_projection(fdf);
-		draw(&fdf);				
 	}
 	return (0);
 }

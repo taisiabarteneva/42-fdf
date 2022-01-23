@@ -40,8 +40,7 @@ public class MlxMain {
 	}
 
 	device = MTLCreateSystemDefaultDevice()!
-	loopParam = UnsafeMutableRawPointer(bitPattern:1)! /// set to 1-1
-	loopParam -= 1
+	loopParam = UnsafeMutableRawPointer(&inLoop)  /// dummy addr init
 
 	/// Add observer anyway to flush pixels every loop. If loop_hook exists, call it.
         var ocontext = CFRunLoopObserverContext(version:0, info:_mlx_bridge(obj:self), retain:nil, release:nil, copyDescription:nil)
@@ -68,6 +67,7 @@ public class MlxMain {
     {
         return { (cfRunloopObserver, cfrunloopactivity, info) -> Void in
 	    let mlx:MlxMain = _mlx_bridge(ptr:info!)
+	    mlx.winList.forEach { $0.flushPixels() }
 	    mlx.winList.forEach { $0.flushImages() }
 ///         mlx.doCallLoopHook()
         }

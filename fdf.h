@@ -6,15 +6,14 @@
 /*   By: wurrigon <wurrigon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 23:47:03 by wurrigon          #+#    #+#             */
-/*   Updated: 2022/01/21 15:24:23 by wurrigon         ###   ########.fr       */
+/*   Updated: 2022/01/23 17:07:13 by wurrigon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FDF_H
 # define FDF_H
 
-/* # include 	<mlx.h> */
-# include "mlx/mlx.h"
+# include <mlx.h>
 # include <stdio.h>
 # include <fcntl.h>
 # include <unistd.h>
@@ -48,6 +47,9 @@
 # define ZOOM_IN	27
 # define ZOOM_OUT	24
 # define PROJ		49
+
+/* events */
+# define KEY_P		2
 
 typedef struct s_params
 {
@@ -94,7 +96,7 @@ typedef struct s_fdf
 	int			height;
 	int			width;
 	t_params	*data;
-	t_coord		*c;
+	t_coord		c;
 }				t_fdf;	
 
 /* parse */
@@ -104,18 +106,12 @@ void	parse(t_fdf **fdf);
 
 /* init */
 t_fdf	*init_fdf(char *file);
-void	init_coord(t_coord **c);
-
-/* color */
-int		get_color(int z_val);
-void	get_color_from_map(t_elem *el, char *line);
 
 /* free */
 void	free_map(t_fdf *fdf, int flag);
-void	free_all(t_fdf *fdf);
 
 /* utils */
-void	fill_coord(t_coord **c, int x, int y, t_fdf **fdf);
+void	fill_coord(t_fdf **c, int x, int y);
 int		ft_max(float a, float b);
 void	my_mlx_pixel_put(t_img *data, int x, int y, int color);
 

@@ -6,7 +6,7 @@
 /*   By: wurrigon <wurrigon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 23:47:11 by wurrigon          #+#    #+#             */
-/*   Updated: 2022/01/20 18:54:43 by wurrigon         ###   ########.fr       */
+/*   Updated: 2022/01/23 11:37:56 by wurrigon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,18 +43,18 @@ static void	open_file(char *filename)
 	char	*line;
 
 	fd = open(filename, O_RDONLY);
-	line = get_next_line(fd, 0);
 	if (fd == -1)
 	{
 		perror("Can't open a file ");
 		exit(EXIT_FAILURE);
 	}
-	else if (ft_strcmp_ext(filename, "fdf") == 1)
+	if (ft_strcmp_ext(filename, "fdf") == 1)
 	{
 		ft_putendl_fd("Enter a file with the extension <.fdf>.", STDOUT_FILENO);
 		exit(EXIT_FAILURE);
 	}
-	else if (!line)
+	line = get_next_line(fd, 0);
+	if (!line)
 	{
 		ft_putendl_fd("Enter non-empty file.", STDOUT_FILENO);
 		exit(EXIT_FAILURE);

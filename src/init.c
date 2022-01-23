@@ -6,21 +6,11 @@
 /*   By: wurrigon <wurrigon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 23:47:36 by wurrigon          #+#    #+#             */
-/*   Updated: 2022/01/22 19:52:11 by wurrigon         ###   ########.fr       */
+/*   Updated: 2022/01/23 16:30:02 by wurrigon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
-
-void	init_coord(t_coord **c)
-{
-	*c = (t_coord *)malloc(sizeof(c));
-	if (!(*c))
-	{
-		perror("Memory allocation failed ");
-		exit(EXIT_FAILURE);
-	}
-}
 
 void	init_im(t_img **im, void **mlx)
 {
@@ -77,7 +67,7 @@ t_fdf	*init_fdf(char *file)
 		perror("Unable to init mlx ");
 		exit(EXIT_FAILURE);
 	}
-	fdf->win = mlx_new_window(fdf->mlx, WIDTH, HEIGHT - 40, "fdf");
+	fdf->win = mlx_new_window(fdf->mlx, WIDTH, HEIGHT - 30, "fdf");
 	if (!fdf->win)
 	{
 		perror("Unable to create a window ");
@@ -86,6 +76,5 @@ t_fdf	*init_fdf(char *file)
 	fdf->file = file;
 	init_im(&fdf->im, &(fdf->mlx));
 	init_data(fdf);
-	init_coord(&(fdf->c));
 	return (fdf);
 }

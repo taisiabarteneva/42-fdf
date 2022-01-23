@@ -6,7 +6,7 @@
 /*   By: wurrigon <wurrigon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 23:47:53 by wurrigon          #+#    #+#             */
-/*   Updated: 2022/01/21 15:24:45 by wurrigon         ###   ########.fr       */
+/*   Updated: 2022/01/23 17:02:17 by wurrigon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ void	calc_height(t_fdf **fdf)
 
 	height = 0;
 	fd = open((*fdf)->file, O_RDONLY);
+	if (fd == -1)
+		exit(EXIT_FAILURE);
 	get_next_line(fd, 1);
 	line = get_next_line(fd, 0);
 	while (line)
@@ -29,10 +31,8 @@ void	calc_height(t_fdf **fdf)
 		tmp = line;
 		line = get_next_line(fd, 0);
 		free(tmp);
-		tmp = NULL;
 	}
 	free(line);
-	line = NULL;
 	(*fdf)->height = height;
 	close(fd);
 }
@@ -43,12 +43,13 @@ void	calc_width(t_fdf **fdf)
 	int		fd;
 
 	fd = open((*fdf)->file, O_RDONLY);
+	if (fd == -1)
+		exit(EXIT_FAILURE);
 	get_next_line(fd, 1);
 	line = get_next_line(fd, 0);
 	(*fdf)->width = ft_word_counter_sep(line, ' ');
 	map_is_incorrent(fdf, fd);
 	free(line);
-	line = NULL;
 	close(fd);
 }
 
@@ -92,7 +93,6 @@ void	fill(t_elem *row, char *line)
 		i++;
 	}
 	free(nums);
-	nums = NULL;
 }
 
 void	parse(t_fdf **fdf)
@@ -104,19 +104,19 @@ void	parse(t_fdf **fdf)
 
 	i = 0;
 	fd = open((*fdf)->file, O_RDONLY);
+	if (fd == -1)
+		exit(EXIT_FAILURE);
 	create(fdf);
 	get_next_line(fd, 1);
 	line = get_next_line(fd, 0);
-	while (line && (*fdf)->matrix[i])
+	while (line && i < (*fdf)->height)
 	{
 		fill((*fdf)->matrix[i], line);
 		i++;
 		tmp = line;
 		line = get_next_line(fd, 0);
 		free(tmp);
-		tmp = NULL;
 	}
 	free(line);
-	line = NULL;
 	close(fd);
 }

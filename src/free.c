@@ -6,7 +6,7 @@
 /*   By: wurrigon <wurrigon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 23:47:24 by wurrigon          #+#    #+#             */
-/*   Updated: 2022/01/21 15:24:11 by wurrigon         ###   ########.fr       */
+/*   Updated: 2022/01/23 17:06:03 by wurrigon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,16 +30,4 @@ void	free_map(t_fdf *fdf, int flag)
 		ft_putendl_fd("Error: malloc", STDOUT_FILENO);
 		exit(EXIT_FAILURE);
 	}
-}
-
-void	free_all(t_fdf *fdf)
-{
-	free_map(fdf, 0);
-	free(fdf->im->ptr);
-	free(fdf->im);
-	free(fdf->c);
-	free(fdf->mlx);
-	free(fdf->data);
-	free(fdf);
-	fdf = NULL;
 }
