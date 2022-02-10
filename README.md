@@ -5,10 +5,12 @@ The goal of the project is to create a simple 3D map. The coordinates of a map a
 This is my first graphical project. I have learned how to do some simple actions, such as create a window, handle key events, draw simple objects.
 
 ## How to build 
+supported on macOS only
 ```
 $> make 
  ```
 ## How to launch
+width value of all lines should be the same
 ```
 $> ./fdf <file.txt>
 ```
