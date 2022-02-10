@@ -20,4 +20,9 @@ Allowed functions :
 - functions from math library
 - functions from miniLibX (42 school internal lib) library
 
-![photo_2022-01-20_20-10-58](https://user-images.githubusercontent.com/95509213/150387871-29360424-136a-439c-a883-fa3d8e33b508.jpg)
+#### Mandelbrot fractal
+
+<img width="1068" alt="Screen Shot 2022-02-10 at 6 05 25 PM" src="https://user-images.githubusercontent.com/95509213/153436024-ee46bc23-c4a1-4fca-b0c4-315a179d151b.png">
+
+#### Mars map
+<img width="1112" alt="Screen Shot 2022-02-10 at 6 02 37 PM" src="https://user-images.githubusercontent.com/95509213/153436145-7245e687-dc3c-4274-bcf0-e313d45d1852.png">
