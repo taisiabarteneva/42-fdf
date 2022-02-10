@@ -1,6 +1,8 @@
 # fdf
 #### 42 school project
-The goal of the project is to create a simple 3D map. The coordinates of a map are stored in a file passed as a parameter to the program. 
+The goal of the project is to create a simple 3D map. The coordinates of a map are stored in a file passed as a parameter to the program.
+
+This is my first graphical project. I have learned how to do some simple actions, such as create a window, handle key events, draw simple objects.
 
 ## How to build 
 ```
